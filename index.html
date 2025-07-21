@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loan Approval Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .form-container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .form-container input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+        .form-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .result {
+            font-size: 1.5em;
+            color: #4CAF50;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Loan Approval Prediction</h2>
+        <form action="/predict" method="post">
+            <label for="Education">Education:</label>
+            <input type="number" name="Education" required>
+            
+            <label for="Self_Employed">Self_Employed:</label>
+            <input type="number" name="Self_Employed" required>
+            
+            <label for="Applicant_Income">Applicant_Income:</label>
+            <input type="number" name="Applicant_Income" required>
+            
+            <label for="Loan_Amount">Loan_Amount:</label>
+            <input type="number" name="Loan_Amount" required>
+            
+            <label for="Loan_Term">Loan_Term:</label>
+            <input type="number" name="Loan_Term" required>
+            
+            <label for="Cibil_Score">Cibil_Score:</label>
+            <input type="number" name="Cibil_Score" required>
+
+            <label for="Residential_Assets_Value">Residential_Assets_Value:</label>
+            <input type="number" name="Residential_Assets_Value" required>
+
+            <label for="Commercial_Assets_Value">Commercial_Assets_Value:</label>
+            <input type="number" name="Commercial_Assets_Value" required>
+
+            <label for="Luxury_Assets_Value">Luxury_Assets_Value:</label>
+            <input type="number" name="Luxury_Assets_Value" required>
+
+            <label for="Bank_Assets_Value">Bank_Assets_Value:</label>
+            <input type="number" name="Bank_Assets_Value" required>
+
+            <label for="Total_Assets_Value">Total_Assets_Value:</label>
+            <input type="number" name="Total_Assets_Value" required>
+
+            <input type="submit" value="Predict">
+        </form>
+        {% if prediction_text %}
+        <div class="result">{{ prediction_text }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
